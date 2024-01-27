@@ -14,8 +14,8 @@ import torch.nn.functional as F
 
 from resnet_anchor import ResNet_Model
 
-
-
+import sys
+sys.path.append('/.')
 
 from utils.validation_dataset import validation_split
 from utils.out_dataset import RandomImages50k
@@ -85,8 +85,8 @@ train_transform = trn.Compose([trn.Grayscale(num_output_channels=3), trn.RandomC
 test_transform = trn.Compose([trn.Grayscale(num_output_channels=3), trn.ToTensor(), trn.Normalize(mean, std)])
 
 
-train_data_in = dset.CIFAR100('~/mnistpy', download=True, train=True, transform=train_transform)
-test_data = dset.CIFAR100('~/mnistpy', download=False, train=False, transform=test_transform)
+train_data_in = dset.MNIST('~/mnistpy', download=True, train=True, transform=train_transform)
+test_data = dset.MNIST('~/mnistpy', download=False, train=False, transform=test_transform)
 if args.add_class:
     num_classes = 11
 else:
