@@ -32,7 +32,7 @@ anchor = torch.from_numpy(np.load('./token_embed_c100.npy')[:10]).cuda()
 num_classes = 10
 sum_temp = 0
 data_dict = torch.from_numpy(np.load('./id_feat_mnist_199epoch.npy')).cuda()
-for index in range(100):
+for index in range(10):
     sum_temp += 500  
     
 if sum_temp == num_classes * 500:
