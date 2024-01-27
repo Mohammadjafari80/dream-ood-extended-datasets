@@ -15,7 +15,7 @@ import torch.nn.functional as F
 from resnet_anchor import ResNet_Model
 
 import sys
-sys.path.append('/.')
+sys.path.append('./')
 
 from utils.validation_dataset import validation_split
 from utils.out_dataset import RandomImages50k
@@ -76,9 +76,9 @@ print(state)
 torch.manual_seed(1)
 np.random.seed(args.seed)
 
-# mean and standard deviation of channels of CIFAR-10 images
-mean = [x / 255 for x in [125.3, 123.0, 113.9]]
-std = [x / 255 for x in [63.0, 62.1, 66.7]]
+# mean and standard deviation of channels of MNIST images
+mean = [x / 255 for x in [128, 128, 128]]
+std = [x / 255 for x in [64, 64, 64]]
 
 train_transform = trn.Compose([trn.Grayscale(num_output_channels=3), trn.RandomCrop(32, padding=4),
                                trn.ToTensor(), trn.Normalize(mean, std)])
@@ -282,4 +282,4 @@ with torch.no_grad():
                 data_dict[dict_key][number_dict[dict_key]] = feat[index].detach()
                 number_dict[dict_key] += 1
 
-np.save('./id_feat_cifar100_199epoch.npy', data_dict.cpu().numpy())
+np.save('./id_feat_mnist_199epoch.npy', data_dict.cpu().numpy())
