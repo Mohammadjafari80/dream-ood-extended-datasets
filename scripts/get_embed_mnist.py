@@ -7,6 +7,10 @@ import faiss
 res = faiss.StandardGpuResources()
 KNN_index = faiss.GpuIndexFlatL2(res, 768)
 from torch.distributions import MultivariateNormal
+
+import sys
+sys.path.append('./')
+
 from KNN import generate_outliers
 
 
