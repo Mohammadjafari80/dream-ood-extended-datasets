@@ -97,7 +97,7 @@ if args.calibration:
     train_data_in, val_data = validation_split(train_data_in, val_share=0.1)
     calib_indicator = '_calib'
 
-anchor = torch.from_numpy(np.load('./token_embed_c100.npy')).cuda()
+anchor = torch.from_numpy(np.load('./token_embed_c100.npy')[:10]).cuda()
 
 
 
