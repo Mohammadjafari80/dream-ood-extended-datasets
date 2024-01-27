@@ -1,4 +1,5 @@
 import argparse, os, sys, glob
+sys.path.append('./')
 import cv2
 import torch
 import numpy as np
@@ -68,6 +69,8 @@ def get_class_names(opt):
                'swing','television','tractor','tripod','umbrella',
                 'violin','whistle','wreck', 'broccoli', 'strawberry'
                ]
+    elif opt.id_data == 'mnist':
+        return ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
     else:
         return [
     'apples',  # id 0
